@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toast" id="toast"></div>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" data-section="daily"><i class="fas fa-sun"></i> Daily</a></li>
+                    <li><a href="#" data-section="weekly"><i class="fas fa-calendar-week"></i> Weekly</a></li>
+                    <li><a href="#" data-section="monthly"><i class="fas fa-calendar-alt"></i> Monthly</a></li>
+                    <li><a href="#" data-section="someday"><i class="fas fa-star"></i> Someday</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <!-- Home Dashboard Command Center -->
+            <div class="home-dashboard" id="home-dashboard">
+                <div class="home-input-container">
+                    <h2>What needs to be done?</h2>
+                    <div class="input-group">
+                        <input type="text" id="task-text-input" placeholder="What's the plan? (Select a category below)" />
+                        <select id="task-category-select">
+                            <option value="">Select Category</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="someday">Someday</option>
+                        </select>
+                        <button id="add-task-btn" class="glow-btn">Add Task</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Section View with Columns -->
+            <div class="grid" id="section-grid">
+                <div class="column">
+                    <h2>Didn't Start</h2>
+                    <div class="task-list" data-status="todo"></div>
+                </div>
+                <div class="column">
+                    <h2>Started</h2>
+                    <div class="task-list" data-status="started"></div>
+                </div>
+                <div class="column">
+                    <h2>Done</h2>
+                    <div class="task-list" data-status="done"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
