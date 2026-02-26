@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toast" id="toast"></div>
+    
+    <!-- Edit Todo Modal -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Task</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modal-title">Title</label>
+                    <input type="text" id="modal-title" placeholder="Task title">
+                </div>
+                <div class="form-group">
+                    <label for="modal-description">Description</label>
+                    <textarea id="modal-description" placeholder="Add details..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-priority">Priority</label>
+                        <select id="modal-priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-due-date">Due Date</label>
+                        <input type="date" id="modal-due-date">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-save">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#" data-project="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" data-project="daily"><i class="fas fa-sun"></i> Daily</a></li>
+                    <li><a href="#" data-project="weekly"><i class="fas fa-calendar-week"></i> Weekly</a></li>
+                    <li><a href="#" data-project="monthly"><i class="fas fa-calendar-alt"></i> Monthly</a></li>
+                    <li><a href="#" data-project="someday"><i class="fas fa-star"></i> Someday</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <!-- Home Dashboard Command Center -->
+            <div class="home-dashboard" id="home-dashboard">
+                <div class="home-input-container">
+                    <h2>What needs to be done?</h2>
+                    <div class="input-group">
+                        <input type="text" id="task-text-input" placeholder="What's the plan? (Select a project below)" />
+                        <select id="task-project-select">
+                            <option value="">Select Project</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="someday">Someday</option>
+                        </select>
+                        <select id="task-priority-select">
+                            <option value="Low">Low Priority</option>
+                            <option value="Medium" selected>Medium Priority</option>
+                            <option value="High">High Priority</option>
+                        </select>
+                        <button id="add-task-btn" class="glow-btn">Add Task</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Section View with Columns -->
+            <div class="grid" id="section-grid">
+                <div class="column">
+                    <h2>Didn't Start</h2>
+                    <div class="task-list" data-status="Todo"></div>
+                </div>
+                <div class="column">
+                    <h2>Started</h2>
+                    <div class="task-list" data-status="Started"></div>
+                </div>
+                <div class="column">
+                    <h2>Done</h2>
+                    <div class="task-list" data-status="Done"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
